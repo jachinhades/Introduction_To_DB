@@ -1,0 +1,124 @@
+--单表查询
+select * from 学生
+--查询所有学生的信息
+
+select 课程号,课程名 from 课程 where 任课教师='沙溢'
+--查询沙溢所授课程的课程号和课程名
+
+select count(*)人数,avg(年龄) 平均年龄 from 学生 where 姓名 like '徐%'
+--查询姓名开头大写为徐的学生的人数和平均年龄
+
+select * from 学生 where 年龄 between 18 and 21 and 性别='男'
+--查询年龄在18和21岁之间的男生的信息
+
+select count(*)人数,院系 from 学生 group by 院系
+--查询每个系的学生人数和系名
+
+select count(*)人数,avg(成绩)平均成绩,max(成绩)最高分,min(成绩)最低分 from 选课 where 课程号 = '10'
+--查询选修10课程的人数、平均成绩、最高分、最低分
+
+select avg(成绩)平均成绩,课程号 from 选课 group by 课程号 order by avg(成绩) desc
+--查询每门课的平均成绩和课程号，并按照平均成绩降序排列
+
+select 课程号 from 选课 group by 课程号 having avg(成绩) >= 75 order by avg(成绩) desc
+--查询平均成绩高于75分的课程号，并按照平均成绩降序排列
+
+
+--多表查询
+select 课程号,成绩 from 选课,学生 where 学生.学号 = 选课.学号 and 姓名 = '徐璐'
+--查询徐璐同学选修的课程号和成绩
+
+select 课程.课程号,课程名,成绩 from 选课,学生,课程 where 学生.学号=选课.学号 and 选课.课程号=课程.课程号 and 姓名='徐璐'
+--查询徐璐同学选修的课程号、课程名和成绩
+
+select 学生.学号 from 学生,选课 where 选课.学号=学生.学号 group by 学生.学号 having COUNT(*) >= 3
+select 学号 from 学生 where 学号 = some (select 学号 from 选课 group by 学号 having COUNT(课程号) >= 3)
+--查询选修了至少两门课的学生学号
+
+select count(*)选修人数,avg(成绩)平均成绩 from 选课 group by 课程号 order by avg(成绩) desc
+--查询每门课的选修人数和平均成绩，并按照平均成绩降序排序
+
+select count(*)选修人数,课程名,选课.课程号 from 选课,课程 where 选课.课程号 = 课程.课程号 group by 选课.课程号,课程名 order by COUNT(学号) desc
+--查询每门课的选修人数课程号课程名，并按照人数降序排序
+
+select 课程号,成绩 from 学生,选课 where 学生.学号=选课.学号 and 姓名='徐璐'
+--查询徐璐同学选修的课程号和成绩
+
+select 选课.课程号,课程名,成绩 from 学生,选课,课程 where 学生.学号=选课.学号 and 选课.课程号=课程.课程号 and 姓名='侯天添'
+--查询侯天添同学选修的课程号、课程名和成绩
+
+select 课程号 from 选课 where 课程号 not in (select 课程号 from 学生,选课 where 学生.学号=选课.学号 and 姓名='马睿武') group by 课程号
+--查询马睿武同学没有选修的课程号（嵌套）
+select 课程号 from 选课 where 课程号 <>some (select 课程号 from 学生,选课 where 学生.学号=选课.学号 and 姓名='马睿武') group by 课程号//显示所有课程号
+--由此可知<>some不可替代not in
+select 课程号 from 课程 where not exists (select * from 选课 where exists) group by 课程号
+
+
+嵌套查询
+select 课程号,成绩 from 选课 where 学号 in (select 学号 from 学生 where 姓名 = '徐璐')
+--查询徐璐选修的课程的课程号和成绩
+
+select 学号,姓名 from 学生 where 年龄 in (select 年龄 from 学生 group by 年龄 having 年龄 > (select 年龄 from 学生 where 姓名 = '徐璐')) and 性别 = '男'
+--查询比徐璐年龄大的男生的学号和姓名
+
+select 学号,姓名 from 学生 where 年龄 > all(select 年龄 from 学生 where 院系 = '霍格沃兹')
+--查询比霍格沃兹学院所有学生年龄大的学生学号和姓名
+
+select 学号,姓名 from 学生 where 年龄 > some(select 年龄 from 学生 where 院系 = '霍格沃兹')
+--查询比霍格沃兹学院某些学生年龄大的学生学号和姓名
+
+select 学号,姓名 from 学生 where 学号 in (select 学号 from 选课 where 课程号 in (select 课程号 from 课程 where 任课教师 = '团子'))
+--查询选修了团子老师课程的学生学号和姓名
+
+select 学号,姓名 from 学生 where not exists (select *  from 课程 where not exists (select * from 选课 where 学生.学号=选课.学号 and 选课.课程号=课程.课程号))
+--查询选修了所有课程的学生学号和姓名
+
+select count(学号)选修了所有选修课的人数 from 学生 where not exists (select *  from 课程 where not exists (select * from 选课 where 学生.学号=选课.学号 and 选课.课程号=课程.课程号))
+--查询选修了所有课程的学生人数
+
+select 课程号,课程名 from 课程 where not exists (select *  from 学生 where not exists (select * from 选课 where 学生.学号=选课.学号 and 选课.课程号=课程.课程号))
+--查询被所有学生选择的课程的课程号和课程名
+
+select 学号,姓名 from 学生 where not exists (select *  from 课程 where 任课教师 = '沙溢' and not exists (select * from 选课 where 学生.学号=选课.学号 and 选课.课程号=课程.课程号))
+--查询选修了沙溢老师所教所有课程的学生学号和姓名
+
+集合查询
+select 学号,姓名 from 学生 where 学号 in (select 学号 from 选课 where 课程号 in (select 课程号 from 课程 where 课程名 = '金铲铲之战'))
+intersect
+select 学号,姓名 from 学生 where 学号 in (select 学号 from 选课 where 课程号 in (select 课程号 from 课程 where 课程名 = '摆烂'))
+--查询同时选修了金铲铲之战和摆烂的学生学号和姓名
+
+select 学号,姓名 from 学生 where 学号 in (select 学号 from 选课 where 课程号 in (select 课程号 from 课程 where 课程名 = '金铲铲之战'))
+union
+select 学号,姓名 from 学生 where 学号 in (select 学号 from 选课 where 课程号 in (select 课程号 from 课程 where 课程名 = '摆烂'))
+--查询选修了金铲铲之战或摆烂的学生学号和姓名
+
+select 学号,姓名 from 学生 where 学号 in (select 学号 from 选课 where 课程号 in (select 课程号 from 课程 where 课程名 = '金铲铲之战'))
+except
+select 学号,姓名 from 学生 where 学号 in (select 学号 from 选课 where 课程号 in (select 课程号 from 课程 where 课程名 = '摆烂'))
+--查询选修了金铲铲之战但没有选修摆烂的学生学号和姓名
+
+增删改
+insert into 学生 values ('08','于坤','男','虚空',100)
+select * from 学生
+--在学生表中插入('08','于坤','男','虚空',100)
+
+insert 选课 values ('08',30,null)--建立可删除数据
+select * from 选课
+delete from 选课 where 成绩 is null
+--删除成绩为空的选课记录
+
+update 选课 set 成绩 = 成绩 * 0.5 where 课程号 in (select 课程号 from 课程 where 课程名='流浪地球计划')
+update 选课 set 成绩 = 成绩 * 2 where 课程号 in (select 课程号 from 课程 where 课程名='流浪地球计划')--恢复数据
+select * from 选课 where 课程号 in (select 课程号 from 课程 where 课程名='流浪地球计划')
+--把流浪地球计划选课成绩乘以0.5
+
+--综合练习
+select count(*)人数,院系 from 学生 group by 院系 order by COUNT(*) desc
+--查询每个系的学生人数和系名，并按照院系人数降序排序
+
+select 课程号,成绩 from 选课,学生 where 学生.学号 = 选课.学号 and 姓名 = '徐璐'
+--查询徐璐同学选修的课程号和成绩
+
+select 学号,姓名 from 学生 where not exists (select *  from 课程 where not exists (select * from 选课 where 学生.学号=选课.学号 and 选课.课程号=课程.课程号))
+--查询选修了所有课程的学生学号和姓名

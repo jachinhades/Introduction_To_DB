@@ -1,0 +1,8 @@
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\03-知识储备\SqlParam\Demo05\bin\Debug\Demo05.exe.config
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\03-知识储备\SqlParam\Demo05\bin\Debug\Demo05.exe
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\03-知识储备\SqlParam\Demo05\bin\Debug\Demo05.pdb
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\03-知识储备\SqlParam\Demo05\obj\x86\Debug\Demo05.Form1.resources
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\03-知识储备\SqlParam\Demo05\obj\x86\Debug\Demo05.Properties.Resources.resources
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\03-知识储备\SqlParam\Demo05\obj\x86\Debug\Demo05.csproj.GenerateResource.Cache
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\03-知识储备\SqlParam\Demo05\obj\x86\Debug\Demo05.exe
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\03-知识储备\SqlParam\Demo05\obj\x86\Debug\Demo05.pdb

@@ -1,0 +1,11 @@
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\bin\Debug\ATM.exe
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\bin\Debug\ATM.pdb
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\obj\x86\Debug\ATM.FrmCreateCard.resources
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\obj\x86\Debug\ATM.FrmLogin.resources
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\obj\x86\Debug\ATM.Properties.Resources.resources
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\obj\x86\Debug\ATM.csproj.GenerateResource.Cache
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\obj\x86\Debug\ATM.exe
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\obj\x86\Debug\ATM.pdb
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\obj\x86\Debug\ATM.FrmATM.resources
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\bin\Debug\ATM.exe.config
+H:\1-笔记\17级\1702\06-SQLSERVER\chp10-SQL与WinForm结合模拟ATM\02-Winform源代码\ATM\ATM\obj\x86\Debug\ATM.csprojResolveAssemblyReference.cache

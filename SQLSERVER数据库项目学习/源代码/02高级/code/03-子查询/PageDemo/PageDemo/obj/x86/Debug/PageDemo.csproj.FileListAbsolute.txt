@@ -1,0 +1,9 @@
+H:\1-笔记\17级\1701\06-SQLSERVER\chp04_子查询\PageDemo\PageDemo\bin\Debug\PageDemo.exe
+H:\1-笔记\17级\1701\06-SQLSERVER\chp04_子查询\PageDemo\PageDemo\bin\Debug\PageDemo.pdb
+H:\1-笔记\17级\1701\06-SQLSERVER\chp04_子查询\PageDemo\PageDemo\obj\x86\Debug\PageDemo.Form1.resources
+H:\1-笔记\17级\1701\06-SQLSERVER\chp04_子查询\PageDemo\PageDemo\obj\x86\Debug\PageDemo.Properties.Resources.resources
+H:\1-笔记\17级\1701\06-SQLSERVER\chp04_子查询\PageDemo\PageDemo\obj\x86\Debug\PageDemo.csproj.GenerateResource.Cache
+H:\1-笔记\17级\1701\06-SQLSERVER\chp04_子查询\PageDemo\PageDemo\obj\x86\Debug\PageDemo.exe
+H:\1-笔记\17级\1701\06-SQLSERVER\chp04_子查询\PageDemo\PageDemo\obj\x86\Debug\PageDemo.pdb
+H:\1-笔记\17级\KGExample\06-SQLSERVER\03-子查询\PageDemo\PageDemo\obj\x86\Debug\PageDemo.exe
+H:\1-笔记\17级\KGExample\06-SQLSERVER\03-子查询\PageDemo\PageDemo\obj\x86\Debug\PageDemo.pdb
